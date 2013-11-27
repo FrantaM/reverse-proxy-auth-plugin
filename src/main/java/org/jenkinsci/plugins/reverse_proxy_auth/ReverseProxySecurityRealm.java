@@ -81,7 +81,7 @@ public class ReverseProxySecurityRealm extends SecurityRealm {
 
                 String v = r.getHeader(header);
                 Authentication a;
-                if (v==null) {
+                if (v==null || v.trim().isEmpty()) {
                     a = Hudson.ANONYMOUS;
                 } else {
                     a = new UsernamePasswordAuthenticationToken(v,"",new GrantedAuthority[]{SecurityRealm.AUTHENTICATED_AUTHORITY});
